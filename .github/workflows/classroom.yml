@@ -23,7 +23,7 @@ jobs:
         with:
           test-name: assignment 11 test
           setup-command: ''
-          command: make grade
+          command: make test
           timeout: 3
           max-score: 100
       - name: Autograding Reporter
