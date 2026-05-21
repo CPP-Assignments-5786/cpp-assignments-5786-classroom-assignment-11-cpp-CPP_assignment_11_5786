@@ -46,11 +46,14 @@
 - **Makefile** — קובץ לקימפול והרצה אוטומטית של הפרויקט
 
 ### קבצים שעליכם ליצור ולממש:
+- **Entity.hpp** — ממשק הישות
 - **Entity.cpp** — מימוש הישות עם move semantics
+- **Resource.hpp** — ממשק המשאב המשותף
 - **Resource.cpp** — מימוש המשאב המשותף
+- **Scene.hpp** — ממשק הסצנה
 - **Scene.cpp** — מימוש הסצנה
 - **StudentTest.cpp** — קובץ בדיקות שלכם עם לפחות 20 מקרי בדיקה
-- **SmartStack.hpp** — מחסנית עם unique_ptr (הכל ב-header כי תבנית — עם חלקים למימוש)
+- **SmartStack.hpp** — מחסנית עם unique_ptr (קובץ header-only כי זו תבנית)
 
 ## הוראות קימפול והרצה
 
