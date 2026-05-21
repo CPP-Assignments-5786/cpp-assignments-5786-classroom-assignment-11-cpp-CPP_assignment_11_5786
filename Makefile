@@ -26,22 +26,19 @@ student_test: StudentTestRunner.o $(OBJECTS)
 		exit 1; \
 	fi
 
-TestRunner.o: test.cpp doctest.h
+TestRunner.o: test.cpp Entity.hpp Resource.hpp Scene.hpp SmartStack.hpp doctest.h
 	$(CXX) $(CXXFLAGS) --compile test.cpp -o TestRunner.o
 
-StudentTestRunner.o: StudentTest.cpp $(wildcard *.cpp) doctest.h
+StudentTestRunner.o: StudentTest.cpp $(wildcard *.hpp) doctest.h
 	$(CXX) $(CXXFLAGS) --compile StudentTest.cpp -o StudentTestRunner.o
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
-Entity.o: Entity.cpp
-
-Resource.o: Resource.cpp
-
-Scene.o: Scene.cpp
-
-main.o: main.cpp
+Entity.o: Entity.cpp Entity.hpp
+Resource.o: Resource.cpp Resource.hpp
+Scene.o: Scene.cpp Scene.hpp Entity.hpp Resource.hpp
+main.o: main.cpp Entity.hpp Resource.hpp Scene.hpp SmartStack.hpp
 
 tidy:
 	clang-tidy $(filter-out $(TIDY_EXCLUDE), $(wildcard *.cpp)) $(TIDY_FLAGS) -- $(CXXFLAGS)
